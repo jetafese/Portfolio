@@ -33,7 +33,19 @@ function addRandomGreeting() {
 function testFetch() {
     console.log("Test fetch from data")
 
-    fetch('/data').then(response => response.text()).then((data) => {
-        document.getElementById('greeting-container').innerHTML = data;
+    fetch('/data').then(response => response.json()).then((data) => {
+        const container = document.getElementById('greeting-container')
+        container.innerHtml = '';
+        container.innerText = '';
+        container.appendChild(createListElement(data[0]))
+        container.appendChild(createListElement(data[1]))
+        container.appendChild(createListElement(data[2]))
     })
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
