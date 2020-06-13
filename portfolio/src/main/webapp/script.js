@@ -17,7 +17,10 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['Welcome to a site hosted on Google Cloud!', 
+       'Ina maana hakuna wasiwasi! Niliishi kwa nchi hii miaka misaba',
+       'የተወለድኩት አዲስ አበባ ውስጥ ነው', 
+       'Jag har bott i Sverige i nästan ett år när jag reser i Västeuropa'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
