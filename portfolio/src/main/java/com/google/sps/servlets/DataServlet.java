@@ -31,9 +31,9 @@ public class DataServlet extends HttpServlet {
   @Override
   public void init() {
     comments = new ArrayList<>();
-    comments.add("Did not catch how many languages there were, was it 3?");
-    comments.add("What was your name? And where do you school?");
-    comments.add("Got any cool projects you would like to show off?");
+    //comments.add("Did not catch how many languages there were, was it 3?");
+    //comments.add("What was your name? And where do you school?");
+    //comments.add("Got any cool projects you would like to show off?");
   }
 
 
@@ -47,10 +47,27 @@ public class DataServlet extends HttpServlet {
     response.getWriter().println(json);
   }
 
+@Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String text = getParameter(request, "text-input", "");
+
+    if(!text.isEmpty()) comments.add(text);
+    response.sendRedirect("/index.html");
+  }
+
  // Convers an ArrayList instance to JSON 
   private String convertToJSON(ArrayList list) {
       Gson gson = new Gson();
       String json = gson.toJson(list);
       return json;
+  }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
