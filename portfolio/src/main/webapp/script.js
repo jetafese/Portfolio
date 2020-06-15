@@ -35,7 +35,6 @@ function testFetch() {
 
     fetch('/data').then(response => response.json()).then((data) => {
         const container = document.getElementById('greeting-container')
-        container.innerHtml = '';
         container.innerText = '';
         container.appendChild(createListElement(data[0]))
         container.appendChild(createListElement(data[1]))
