@@ -17,7 +17,10 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['Welcome to a site hosted on Google Cloud!', 
+       'Ina maana hakuna wasiwasi! Niliishi kwa nchi hii miaka misaba',
+       'የተወለድኩት አዲስ አበባ ውስጥ ነው', 
+       'Jag har bott i Sverige i nästan ett år när jag reser i Västeuropa'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -25,4 +28,23 @@ function addRandomGreeting() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+}
+
+function testFetch() {
+    console.log("Test fetch from data")
+
+    fetch('/data').then(response => response.json()).then((data) => {
+        const container = document.getElementById('greeting-container')
+        container.innerText = '';
+        container.appendChild(createListElement(data[0]))
+        container.appendChild(createListElement(data[1]))
+        container.appendChild(createListElement(data[2]))
+    })
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

@@ -2,17 +2,39 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Welcome!</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
+
+    <div id="content" class="content">
+      <h1>Here's a little bit about me</h1>
+      <p>Click here to get a random message in one of the languages that I speak:</p>
       <button onclick="addRandomGreeting()">Hello</button>
+      <button onclick="testFetch()"> Fetch </button>
       <div id="greeting-container"></div>
     </div>
+
+    <div class="lang-background"></div>
+
+    <div id="content" class="content">
+      <h1>Bigger Thoughts</h1>
+      <p> The universe is vast and intriguing, and studying it has been a life long journey since there are
+          many things going on at once. Stars dying and being born, systems imploding or exploding, and people 
+          building each other up and bringing each other down. </p>
+    </div>
+
+    <div class="cool-background"></div>
+
+    <div id="content" class="content">
+      <h1>Smaller Focus</h1>
+      <p> Building systems is an amazing part of what I get to do in my day to day, but there is an overwhelming 
+          attention to detail in this line of work. A misplaced letter can make the difference between a beautiful 
+          running system and a catastrophic bug that breaks the system, or worse, leaks private information. </p>
+    </div>
+
+    <div class="code-background"></div>
+
   </body>
 </html>

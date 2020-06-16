@@ -1,9 +1,47 @@
+body, html {
+  height: 100%;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
+  height: 200px;
 }
 
 #greeting-container {
   margin-top: 20px;
+}
+
+.cool-background {
+  background-image: url('https://scx2.b-cdn.net/gfx/news/hires/2018/14-astronomersd.jpg');
+
+  height: 100%; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.code-background {
+  background-image: url('https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg');
+
+  height: 100%; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lang-background {
+  background-image: url('https://mycroft.ai/wp-content/uploads/2018/05/languages-edited.png');
+
+  height: 100%; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
