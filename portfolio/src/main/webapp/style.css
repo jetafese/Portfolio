@@ -17,6 +17,11 @@ body, html {
   margin-top: 20px;
 }
 
+textarea.comment-box {
+    margin-top: 20px;
+    width: 220px;
+}
+
 .cool-background {
   background-image: url('https://scx2.b-cdn.net/gfx/news/hires/2018/14-astronomersd.jpg');
 

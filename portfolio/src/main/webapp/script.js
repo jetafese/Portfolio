@@ -36,8 +36,8 @@ function testFetch() {
     fetch('/data').then(response => response.json()).then((comments) => {
         const container = document.getElementById('comment-container')
         container.innerText = '';
-        for(c in comments) {
-          container.appendChild(createListElement(comments[c]))
+        for(const c of comments) {
+          container.appendChild(createListElement(c))
         }
     })
 }
@@ -48,3 +48,7 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    testFetch();
+});
