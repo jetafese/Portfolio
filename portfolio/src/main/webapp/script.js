@@ -29,3 +29,22 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function testFetch() {
+    console.log("Test fetch from data")
+
+    fetch('/data').then(response => response.json()).then((data) => {
+        const container = document.getElementById('greeting-container')
+        container.innerText = '';
+        container.appendChild(createListElement(data[0]))
+        container.appendChild(createListElement(data[1]))
+        container.appendChild(createListElement(data[2]))
+    })
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
