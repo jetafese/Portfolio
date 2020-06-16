@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="testFetch()">
+  <body>
 
     <div id="content" class="content">
       <h1>Here's a little bit about me</h1>
       <p>Click here to get a random message in one of the languages that I speak:</p>
       <button onclick="addRandomGreeting()">Hello</button>
+      <button onclick="testFetch()"> Fetch </button>
       <div id="greeting-container"></div>
       <form action="/data" method="POST">
         <textarea name="text-input" style="margin-top: 20px;width: 220px;" placeholder="Insert your comment here :)"></textarea>
