@@ -31,9 +31,6 @@ public class DataServlet extends HttpServlet {
   @Override
   public void init() {
     comments = new ArrayList<>();
-    //comments.add("Did not catch how many languages there were, was it 3?");
-    //comments.add("What was your name? And where do you school?");
-    //comments.add("Got any cool projects you would like to show off?");
   }
 
 
@@ -55,7 +52,7 @@ public class DataServlet extends HttpServlet {
     if(!text.isEmpty()) comments.add(text);
     response.sendRedirect("/index.html");
   }
-
+  
  // Convers an ArrayList instance to JSON 
   private String convertToJSON(ArrayList list) {
       Gson gson = new Gson();
