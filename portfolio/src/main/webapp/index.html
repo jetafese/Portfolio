@@ -14,6 +14,12 @@
       <button onclick="addRandomGreeting()">Hello</button>
       <button onclick="testFetch()"> Fetch </button>
       <div id="greeting-container"></div>
+      <form action="/data" method="POST">
+        <textarea class="comment-box" name="text-input" placeholder="Insert your comment here :)"></textarea>
+        <br/><br/>
+        <input type="submit" />
+      </form>
+      <div id="comment-container"></div>
     </div>
 
     <div class="lang-background"></div>

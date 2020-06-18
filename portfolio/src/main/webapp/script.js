@@ -33,12 +33,12 @@ function addRandomGreeting() {
 function testFetch() {
     console.log("Test fetch from data")
 
-    fetch('/data').then(response => response.json()).then((data) => {
-        const container = document.getElementById('greeting-container')
+    fetch('/data').then(response => response.json()).then((comments) => {
+        const container = document.getElementById('comment-container')
         container.innerText = '';
-        container.appendChild(createListElement(data[0]))
-        container.appendChild(createListElement(data[1]))
-        container.appendChild(createListElement(data[2]))
+        for(const c of comments) {
+          container.appendChild(createListElement(c))
+        }
     })
 }
 
@@ -48,3 +48,7 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    testFetch();
+});

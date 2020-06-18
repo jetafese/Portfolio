@@ -6,11 +6,20 @@ body, html {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
-  height: 200px;
+  margin-bottom: inherit;
 }
 
 #greeting-container {
   margin-top: 20px;
+}
+
+#comment-container {
+  margin-top: 20px;
+}
+
+textarea.comment-box {
+    margin-top: 20px;
+    width: 220px;
 }
 
 .cool-background {
