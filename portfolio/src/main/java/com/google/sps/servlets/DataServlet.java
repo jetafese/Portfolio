@@ -39,6 +39,11 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
+PreparedQuery results = datastore.prepare(query);
+for (Entity entity : results.asIterable()) 
+    
     // convert to JSON
     String json = convertToJSON(comments);
 
@@ -51,15 +56,17 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
     String text = getParameter(request, "text-input", "");
+    long timestamp = System.currentTimeMillis();
 
-    Entity taskEntity = new Entity("Comments");
-    taskEntity.setProperty("text", text);
-
-    if(!text.isEmpty())
-        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-        datastore.put(taskEntity);
-        comments.add(text);
-        
+    if(!text.isEmpty()) {
+      Entity taskEntity = new Entity("Comments");
+      taskEntity.setProperty("text", text);
+      taskEntity.setProperty("timestamp", timestamp);
+      
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(taskEntity);
+      comments.add(text);
+    }    
     response.sendRedirect("/index.html");
   }
 
