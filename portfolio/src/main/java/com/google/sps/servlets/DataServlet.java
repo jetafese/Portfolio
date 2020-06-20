@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
@@ -40,9 +43,13 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-    Query query = new Query("Task").addSort("timestamp", SortDirection.DESCENDING);
-PreparedQuery results = datastore.prepare(query);
-for (Entity entity : results.asIterable()) 
+    Query query = new Query("Comments").addSort("timestamp", SortDirection.DESCENDING);
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+    for (Entity entity : results.asIterable()) {
+        String comment = (String) entity.getProperty("text");
+        comments.add(comment);
+    }
     
     // convert to JSON
     String json = convertToJSON(comments);
@@ -65,7 +72,6 @@ for (Entity entity : results.asIterable())
       
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(taskEntity);
-      comments.add(text);
     }    
     response.sendRedirect("/index.html");
   }

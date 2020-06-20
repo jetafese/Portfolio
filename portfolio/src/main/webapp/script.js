@@ -49,6 +49,6 @@ function createListElement(text) {
   return liElement;
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
     testFetch();
 });
