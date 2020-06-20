@@ -13,6 +13,14 @@ body, html {
   margin-top: 20px;
 }
 
+/*
+#map {
+  border: thin solid white;
+  height: 500px;
+  width: 500px;
+}
+*/
+
 #comment-container {
   margin-top: 20px;
 }

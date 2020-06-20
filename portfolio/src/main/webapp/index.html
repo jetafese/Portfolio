@@ -5,6 +5,8 @@
     <title>Welcome!</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLORUwRgC-LFKAJIRHNj7qKLO3tHzmZlc&callback=initMap"
+  type="text/javascript"></script>
   </head>
   <body>
 
@@ -13,6 +15,7 @@
       <p>Click here to get a random message in one of the languages that I speak:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
+      <div id="map"></div>
       <form action="/data" method="POST">
         <textarea class="comment-box" name="text-input" placeholder="Insert your comment here :)"></textarea>
         <br/><br/>
